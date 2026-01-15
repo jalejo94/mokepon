@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>MOKEPON!</title>
+    <script src="js/mokepon.js"></script>
+  </head>
+
+  <body>
+    <h1>MOKEPON 🔥💧🌲</h1>
+
+    <section id="seleccionar_mascota">
+
+      <h2>Selecciona tu mokepon:</h2>
+
+      <label for="hipodoge">🐶 Hipodoge </label>
+      <input type = "radio" name="mascota" id="hipodoge" />
+      
+      <label for="capipepo">🐢 Capipepo </label>
+      <input type = "radio" name="mascota" id="capipepo"/>
+
+      <label for="ratigueya">🐭 Ratigueya </label>
+      <input type = "radio" name="mascota" id="ratigueya"/>
+
+      <button id="boton_mascota">SELECCIONAR MASCOTA</button>
+
+    </section>
+
+
+  <section id="seleccionar_mascota">
+      <h2>Seleccionaste:</h2>
+
+      <p>Seleccionaste a <span id="mascota_jugador"> </span> </p>
+      <p>Pc selecciono a <span id="mascota_pc"> </span> </p>
+      <p>Tu mascota tiene <span>3</span> vidas</p>
+      <p>La mascota de tu enemigo tiene <span>3</span> vidas</p> 
+    
+  </section>
+
+
+    <section id="seleccionar_ataque">
+      <h2>Selecciona tu ataque:</h2>
+      <p>
+        <button id="boton_fuego">FUEGO 🔥</button>
+
+        <button id="boton_agua">AGUA 💧</button>
+
+        <button id="boton_tierra">TIERRA 🌲</button>
+      </p>
+    </section>
+
+    <section id="mensajes">
+      <p>tu mascota ataco con <span id="ataque_jugador"></span></p>
+    </section>
+
+    <section id="mensajes_pc">
+      <p>tu enemigo ataco con <span id="ataque_pc"></span></p>
+    </section>
+
+    <section id="reiniciar">
+      <p>
+        El juego termino
+        <button id="boton_reiniciar">REINICIAR JUEGO</button>
+      </p>
+    </section>
+    
+  </body>
+</html>
+
+
