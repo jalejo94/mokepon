@@ -4,7 +4,8 @@ window.addEventListener("load", iniciarJuego)
 
 let ataqueJugador = ""
 let ataquePc = ""
-let
+let vidasJugador = 3
+let vidasPc = 3
 
 function numeroAleatorio(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -111,39 +112,63 @@ function iniciarJuego() {
             spanAtaquePc.innerHTML = ataquePc
         }
     }
+
+//--- Combate ----------------------------------------------------------    
+
 function crearMensaje() {
 
     let parrafo = document.createElement("p")
-    let parrafo_2 = document.createElement("h3")
+    let parrafo_2 = document.createElement("h2")
+    let resultadoCombate = ""
     let seccionMensajes = document.getElementById("mensajes")
     let seccionMensajes2 = document.getElementById("mensajes_ganador")
+    
     seccionMensajes.appendChild(parrafo)
     combate()
     seccionMensajes2.appendChild(parrafo_2)
 
     parrafo.innerHTML = "Tu mascota atacó con " + ataqueJugador + ", la mascota de la PC atacó con " + ataquePc 
-    parrafo_2.innerHTML = "resultado combate: " + combate()
+    parrafo_2.innerHTML = "Resultado combate: " + resultadoCombate
 
     function combate() {
+
+        let spanVidasJugador = document.getElementById("vidas_jugador")
+        let spanVidasPc = document.getElementById("vidas_pc")
+
         if (ataqueJugador == ataquePc) {
             alert("EMPATE")
-            parrafo_2.innerHTML = "EMPATE"
+            resultadoCombate = "EMPATE"
+            
         }
         else if ((ataqueJugador == "Fuego 🔥" && ataquePc == "Tierra 🌲") 
             || (ataqueJugador == "Agua 💧" && ataquePc == "Fuego 🔥") 
             || (ataqueJugador == "Tierra 🌲" && ataquePc == "Agua 💧")) {
             alert("GANASTE")
-            parrafo_2.innerHTML = "GANASTE"
+            resultadoCombate = "GANASTE"
+            vidasPc--
+            spanVidasPc.innerHTML = vidasPc 
+            
         }
         else {
             alert("PERDISTE")
-            parrafo_2.innerHTML = "PERDISTE"   
+            resultadoCombate = "PERDISTE"
+            vidasJugador--
+            spanVidasJugador.innerHTML = vidasJugador 
         }
+
+        function revisarVidas() {
+            if (vidasPc == 0) {
+                alert("FELICIDADES GANASTE, ERES UN CRACK 🥳")
+
+            if (vidasJugador == 0) {
+                alert("LO SIENTO, PERDISTE ERES UNA AREPA. INTENTA DE NUEVO 😞")
+                
+            }
         }
     }    
 
 }
-//--- Mensajes de ataque ----------------------------------------------------------
+//--- Mensajes de vidas ----------------------------------------------------------
 
 
 
